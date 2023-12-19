@@ -1,0 +1,44 @@
+{
+	"name": "reactSnippetsWeb",
+	"displayName": "reactSnippetsWeb",
+	"publisher": "457341620",
+	"description": "",
+	"version": "0.0.6",
+	"engines": {
+		"vscode": "^1.78.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/snippets.code-snippets"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./snippets/snippets.code-snippets"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/snippets.code-snippets"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/snippets.code-snippets"
+			}
+		]
+	},
+	"repository": "git@github.com:457341620/vscodePlug.git",
+	"__metadata": {
+		"id": "413bc9c9-2c24-4967-a5b5-4583e25825ed",
+		"publisherId": "30227429-04cb-485c-afe5-a6f8fb46fd24",
+		"publisherDisplayName": "457341620",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1699897268235,
+		"preRelease": false
+	}
+}

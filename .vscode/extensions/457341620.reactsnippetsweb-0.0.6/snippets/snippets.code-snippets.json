@@ -1,0 +1,384 @@
+{
+	"打印log": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1', 'log);"
+		],
+		"description": "打印log"
+	},
+	"打印log2": {
+		"prefix": "co",
+		"body": [
+			"console.log('$1', 'log);"
+		],
+		"description": "打印log"
+	},
+	"const一个变量": {
+		"prefix": "aa",
+		"body": [
+			"const '$1': any = '';"
+		],
+		"description": "const一个变量"
+	},
+	"promise异步变同步": {
+		"prefix": "all",
+		"body": [
+			"  const '$1' = async ()=>{\n  // 调用 const a = awit getSchemeRefFromVal() 加awit 结果是多个数组，a要取a[o]\n    const newArr: any = [];\n    return await Promise.all(Object.keys(pageData.schemaFormRefList).map(async (refItem: any, )=>{\n      const itemVal = pageData.schemaFormRefList[refItem];\n      const val = await itemVal?.current?.validateFields();\n      console.log(itemVal, 'item222', val, newArr);\n      return newArr.push(val)\n    }));\n  }"
+		],
+		"description": "promise异步变同步"
+	},
+	"引入ant": {
+		"prefix": "ant",
+		"body": [
+			"import {  Modal } from '@alipay/bigfish/antd';"
+		],
+		"description": "引入ant"
+	},
+	"ts的any": {
+		"prefix": "an",
+		"body": [
+			": any;"
+		],
+		"description": "ts的any"
+	},
+	"异步的function": {
+		"prefix": "asy",
+		"body": [
+			"export async function '$1'(params: any) {\n  const res = await requestApi.post('/material/materialSave.json', params, { dataType: 'form' });\n  return { success: true, data: res.data };\n}"
+		],
+		"description": "异步的function"
+	},
+	"antd的按钮": {
+		"prefix": "btn",
+		"body": [
+			"<Button style={{}} type='primary' ></Button>;"
+		],
+		"description": "antd的按钮"
+	},
+	"=带{}": {
+		"prefix": "dd",
+		"body": [
+			"={}"
+		],
+		"description": "=带{}"
+	},
+	"数组差集": {
+		"prefix": "cj",
+		"body": [
+			"const  '$1' =  '$1'.filter((v: any) => !delVal.find((delitem: any) => delitem === v))"
+		],
+		"description": "数组差集"
+	},
+	"无状态组件": {
+		"prefix": "cool",
+		"body": [
+			"import React from 'react'\n\nconst cool =(props: any)=>{\n    return(\n        <div>\n\n        </div>\n    )\n}"
+		],
+		"description": "无状态组件"
+	},
+	"定义数组": {
+		"prefix": "csa",
+		"body": [
+			"const '$1': any = [];"
+		],
+		"description": "定义数组"
+	},
+	"定义对象": {
+		"prefix": "cso",
+		"body": [
+			"const '$1': any = {};"
+		],
+		"description": "定义对象"
+	},
+	"模版解析": {
+		"prefix": "cst",
+		"body": [
+			"const { '$1' }: any = '$1';"
+		],
+		"description": "模版解析"
+	},
+	"阻止默认行为": {
+		"prefix": "stop",
+		"body": [
+			"e.stopPropagation();\n e.preventDefault();"
+		],
+		"description": "阻止默认行为"
+	},
+	"dom的for循环": {
+		"prefix": "for",
+		"body": [
+			"for (let i = 0; i< divDom.length; i+= 1) {\n}"
+		],
+		"description": "dom的for循环"
+	},
+	"const函数": {
+		"prefix": "fun",
+		"body": [
+			"const '$1' = (data: any)=>{\n     \n};"
+		],
+		"description": "const函数"
+	},
+	"获取一个表单字段的val": {
+		"prefix": "geta",
+		"body": [
+			"form.getFieldValue('name');"
+		],
+		"description": "获取一个表单字段的val"
+	},
+	"historyPush": {
+		"prefix": "hip",
+		"body": [
+			"historyPush('', {});"
+		],
+		"description": "historyPush"
+	},
+	"historyParse": {
+		"prefix": "hipa",
+		"body": [
+			"const { typeOpt = '',  } = historyParse();"
+		],
+		"description": "historyParse"
+	},
+	"引入history": {
+		"prefix": "his",
+		"body": [
+			"import { history } from '@alipay/bigfish';"
+		],
+		"description": "引入history"
+	},
+	"替换换行符": {
+		"prefix": "hui",
+		"body": [
+			"'$1'.replace(/[\r\n]/g,'');"
+		],
+		"description": "替换换行符"
+	},
+	"if的判断": {
+		"prefix": "if",
+		"body": [
+			"if ('$1') {\n                \n };"
+		],
+		"description": "if的判断"
+	},
+	"数组是否出现某个元素": {
+		"prefix": "inc",
+		"body": [
+			"'$1'.includes(val);"
+		],
+		"description": "数组是否出现某个元素"
+	},
+	"字符串是否出现某个元素": {
+		"prefix": "ind",
+		"body": [
+			"'$1'.indexOf('a') !== -1"
+		],
+		"description": "字符串是否出现某个元素"
+	},
+	"判断数组是不等于true或者false": {
+		"prefix": "ist",
+		"body": [
+			"const '$1' = !a.find(i => i !== true);"
+		],
+		"description": "判断数组是不等于true或者false"
+	},
+	"数组交集": {
+		"prefix": "jj",
+		"body": [
+			"const c = a.filter(function(v: any){ return b.indexOf(v: any) > -1 })"
+		],
+		"description": "交集"
+	},
+	"判断对象是不是空": {
+		"prefix": "jss",
+		"body": [
+			"JSON.stringify(oldColor) !== '{}';"
+		],
+		"description": "判断对象是不是空"
+	},
+	"单箭头函数": {
+		"prefix": "jtd",
+		"body": [
+			"(state: any)=>{};"
+		],
+		"description": "判断对象是不是空"
+	},
+	"替换所有空格 ": {
+		"prefix": "kg",
+		"body": [
+			"itemVal = itemVal.replace(/\\s+/g, \"\");"
+		],
+		"description": "替换所有空格"
+	},
+	"设置缓存 ": {
+		"prefix": "locs",
+		"body": [
+			"localStorage.setItem('local',JSON.stringify(bksdInfo));\nJSON.parse(localStorage.getItem('localImportJson')) ||[];\n"
+		],
+		"description": "设置缓存"
+	},
+	"遍历ts ": {
+		"prefix": "mapt",
+		"body": [
+			"'$1'?.map((item: any)=>{\n                  \n  });"
+		],
+		"description": "遍历ts"
+	},
+	"禁止ts提醒": {
+		"prefix": "nots",
+		"body": [
+			" // @ts-ignore\n  // eslint-disable-next-line @typescript-eslint/no-unused-vars"
+		],
+		"description": "禁止ts提醒"
+	},
+	"对象遍历": {
+		"prefix": "obk",
+		"body": [
+			"Object.keys().map((item: any, index?: any)=>{\n  const itemVal = colorObj[item]\n})"
+		],
+		"description": "对象遍历"
+	},
+	"多个promise变同步": {
+		"prefix": "pall",
+		"body": [
+			"const x = async (data: any)=>{\n  return await Promise.all(\n    userArr.map(async (item: any) => {\n      const userData = await queryUser(item);\n      return {\n        userData,\n      };\n    }),\n  ); \n}"
+
+		],
+		"description": "多个promise变同步"
+	},
+	"antd表单的双向": {
+		"prefix": "prd",
+		"body": [
+			" <ProFormDependency  name={['saleProductCode',]}>\n        {({saleProductCode})=>{\n          return <ProFormText\n            name=\"saleProductCode\"\n            label=\"销售产品码\"\n            width=\"lg\"\n            rules={[{ required: true }]}\n          />\n        }}\n</ProFormDependency>"
+
+		],
+		"description": "antd表单的双向"
+	},
+	"数组去重": {
+		"prefix": "qc",
+		"body": [
+			"const a = Array.from(new Set(changeDivIndexArr));"
+
+		],
+		"description": "数组去重"
+	},
+	"form的ref": {
+		"prefix": "ref",
+		"body": [
+			"import type { ProFormInstance } from '@alipay/tech-ui';\n  const formRef = useRef<ProFormInstance>();"
+
+		],
+		"description": "form的ref"
+	},
+	"return返回": {
+		"prefix": "ret",
+		"body": [
+			"return ();"
+		],
+		"description": "return返回"
+	},
+	"设置表单的值": {
+		"prefix": "setf",
+		"body": [
+			"formRef.current?.setFieldsValue({});"
+		],
+		"description": "设置表单的值"
+	},
+	"强制更新set": {
+		"prefix": "setp",
+		"body": [
+			"const timestamp = new Date().getTime();\n setPageData({...pageData, [timestamp]: timestamp});"
+		],
+		"description": "强制更新set"
+	},
+	"深拷贝": {
+		"prefix": "shen",
+		"body": [
+			"const '$1'  = JSON.parse(JSON.stringify(newObj));"
+		],
+		"description": "深拷贝"
+	},
+	"css鼠标禁止点击": {
+		"prefix": "shub",
+		"body": [
+			".'$1'{\n  pointer-events: none;\n  cursor: none;\n}"
+		],
+		"description": "css鼠标禁止点击"
+	},
+	"数组的截取": {
+		"prefix": "spi",
+		"body": [
+			"bigArr.splice(index,1); // 改变原数组"
+		],
+		"description": "数组的截取"
+	},
+	"字符串转数组": {
+		"prefix": "spl",
+		"body": [
+			"split('')[0];); "
+		],
+		"description": "字符串转数组"
+	},
+	"定时器": {
+		"prefix": "stime",
+		"body": [
+			"setTimeout(()=>{\n      \n },100);"
+		],
+		"description": "定时器"
+	},
+	"设置表单错误": {
+		"prefix": "terr",
+		"body": [
+			" setTimeout(()=>{\n form?.current?.setFields({\n      [id]: {\n          value: val,\n          errors: [new Error('key重复')],\n       },\n   });\n},10);"
+		],
+		"description": "设置表单错误"
+	},
+	"表单的重置": {
+		"prefix": "rest",
+		"body": [
+			"form?.current?.resetFields();"
+		],
+		"description": "表单的重置"
+	},
+	"promise的回调": {
+		"prefix": "then",
+		"body": [
+			".then((data: amy)=>{});"
+		],
+		"description": "promise的回调"
+	},
+	"判断数据类型": {
+		"prefix": "tof",
+		"body": [
+			"Object.prototype.toString.call('') === '[object String] [object Object] [object Boolean] [object Array]'"
+		],
+		"description": "判断数据类型"
+	},
+	"try捕捉": {
+		"prefix": "try",
+		"body": [
+			"try {\n             \n         \n}catch (e) {};"
+		],
+		"description": "try捕捉"
+	},
+	"表单的值获取": {
+		"prefix": "getval",
+		"body": [
+			"const '$1': any = await ref?.current?.validateFields();"
+		],
+		"description": "表单的值获取"
+	},
+	"hooks的useEffect": {
+		"prefix": "usef",
+		"body": [
+			"useEffect(()=>{}, []);"
+		],
+		"description": "useEffect"
+	},
+	"hooks的usestate": {
+		"prefix": "uses",
+		"body": [
+			"const ['$!', set'$!'] = useState<any>();"
+		],
+		"description": "hooks的usestate"
+	}
+}

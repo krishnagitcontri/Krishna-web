@@ -1,0 +1,513 @@
+{
+	"name": "dscodegpt",
+	"displayName": "Code GPT: Chat & AI Agents",
+	"publisher": "DanielSanMedium",
+	"description": "Easily Connect to Top AI Providers Using Their Official APIs in VSCode",
+	"license": "MIT",
+	"icon": "logo_codegpt.png",
+	"version": "2.2.10",
+	"engines": {
+		"vscode": "^1.72.0"
+	},
+	"categories": [
+		"Data Science",
+		"Machine Learning",
+		"Programming Languages",
+		"Testing",
+		"Linters",
+		"Formatters",
+		"Education"
+	],
+	"keywords": [
+		"chatgpt",
+		"copilot",
+		"codegpt",
+		"gpt",
+		"chat",
+		"gpt4",
+		"autocomplete",
+		"gemini",
+		"openai"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "codegpt-sidebar-view",
+					"title": "CodeGPT Chat",
+					"icon": "media/code_gpt_bar.svg"
+				}
+			]
+		},
+		"views": {
+			"codegpt-sidebar-view": [
+				{
+					"type": "webview",
+					"id": "codegpt-sidebar",
+					"name": "CodeGPT Chat",
+					"icon": "media/code_gpt_bar.svg",
+					"contextualTitle": "CodeGPT Chat"
+				}
+			]
+		},
+		"configuration": [
+			{
+				"title": "CodeGPT",
+				"properties": {
+					"CodeGPT.apiKey": {
+						"type": "string",
+						"default": "OpenAI",
+						"markdownDescription": "Select an AI provider and enter your [API Key](https://beta.openai.com/account/api-keys) press cmd+shift+p (mac) ctrl+shift+p (windows) and search for 'CodeGPT: Set API KEY'. Select your AI provider:",
+						"enum": [
+							"CodeGPT Plus",
+							"OpenAI",
+							"Google",
+							"Cohere",
+							"AI21",
+							"Anthropic",
+							"GPT4All",
+							"HuggingFace",
+							"Azure",
+							"Ollama",
+							"Fireworks",
+							"Mistral"
+						]
+					},
+					"CodeGPT.model": {
+						"type": "string",
+						"default": "gpt-4",
+						"markdownDescription": "The [model](https://docs.codegpt.co/docs/tutorial-basics/configuration#model) to use",
+						"enum": [
+							"CodeGPT Plus",
+							"CodeGPT Plus Beta",
+							"gpt-4",
+							"gpt-4-32k",
+							"gpt-4-1106-preview",
+							"gpt-3.5-turbo",
+							"gpt-3.5-turbo-16k",
+							"azure",
+							"gemini-pro",
+							"chat-bison-001",
+							"text-bison-001",
+							"coral",
+							"command-xlarge-nightly",
+							"command-medium-nightly",
+							"command-light-nightly",
+							"j2-light",
+							"j2-mid",
+							"j2-ultra",
+							"claude-v1.3-100k",
+							"claude-instant-v1.3-100k",
+							"claude-2",
+							"claude-2.1",
+							"gpt4all-j-v1.3-groovy",
+							"vicuna-13b-1.1-q4_2",
+							"replit-code-v1-3b",
+							"mistral-7b-openorca",
+							"gpt4all-falcon-q4_0",
+							"HuggingFaceH4/starchat-beta",
+							"tiiuae/falcon-7b-instruct",
+							"codellama/CodeLlama-34b-Instruct-hf",
+							"mistralai/Mistral-7B-v0.1",
+							"llama2",
+							"llama2:13b",
+							"llama2:70b",
+							"codellama",
+							"codellama:13b",
+							"codellama:34b",
+							"codellama:7b-python",
+							"codellama:34b-python",
+							"phind-codellama",
+							"phind-codellama:34b",
+							"wizardcoder",
+							"wizardcoder:python",
+							"wizardcoder:34b-python",
+							"falcon:7b",
+							"falcon:40b",
+							"falcon:180b",
+							"mistral",
+							"zephyr",
+							"deepseek-coder",
+							"deepseek-coder:33b",
+							"magicoder",
+							"stablelm-zephyr",
+							"starling-lm",
+							"llama-v2-7b-chat",
+							"mixtral-8x7b-fw-chat",
+							"zephyr-7b-beta",
+							"mistral-tiny",
+							"mistral-small",
+							"mistral-medium"
+						],
+						"enumDescriptions": [
+							"CodeGPT Plus - Judini",
+							"CodeGPT Plus Beta - Judini",
+							"gpt-4: ChatGPT - OpenAI (Recommended)",
+							"gpt-4-32k: ChatGPT - OpenAI",
+							"gpt-4-1106-preview: ChatGPT - OpenAI",
+							"gpt-3.5-turbo: ChatGPT - OpenAI",
+							"gpt-3.5-turbo-16k: ChatGPT - OpenAI",
+							"azure - Microsoft",
+							"gemini-pro - Google AI Studio",
+							"chat-bison-001 - Google AI Studio",
+							"text-bison-001 - Google AI Studio",
+							"coral - Cohere",
+							"command-xlarge-nightly - Cohere",
+							"command-medium-nightly - Cohere",
+							"command-light-nightly - Cohere",
+							"j2-light - AI21",
+							"j2-mid - AI21",
+							"j2-ultra - AI21",
+							"claude-v1.3-100k - Anthropic",
+							"claude-instant-v1.3-100k - Anthropic",
+							"claude-2 - Anthropic",
+							"claude-2.1 - Anthropic",
+							"gpt4all-j-v1.3-groovy - GPT4All",
+							"vicuna-13b-1.1-q4_2 - GPT4All",
+							"replit-code-v1-3b - GPT4All",
+							"mistral-7b-openorca - GPT4All",
+							"gpt4all-falcon-q4_0 - GPT4All",
+							"HuggingFaceH4/starchat-beta - HuggingFace",
+							"tiiuae/falcon-7b-instruct - HuggingFace",
+							"codellama/CodeLlama-34b-Instruct-hf - HuggingFace",
+							"mistralai/Mistral-7B-v0.1 - HuggingFace",
+							"llama2 - Ollama",
+							"llama2:13b - Ollama",
+							"llama2:70b - Ollama",
+							"codellama - Ollama",
+							"codellama:13b - Ollama",
+							"codellama:34b - Ollama",
+							"codellama:7b-python - Ollama",
+							"codellama:34b-python - Ollama",
+							"phind-codellama - Ollama",
+							"phind-codellama:34b - Ollama",
+							"wizardcoder - Ollama",
+							"wizardcoder:python - Ollama",
+							"wizardcoder:34b-python - Ollama",
+							"falcon:7b - Ollama",
+							"falcon:40b - Ollama",
+							"falcon:180b - Ollama",
+							"Mistral:7b - Ollama",
+							"Zephyr:7b - Ollama",
+							"deepseek-coder:1.3b - Ollama",
+							"deepseek-coder:33b - Ollama",
+							"magicoder - Ollama",
+							"stablelm-zephyr - Ollama",
+							"starling-lm - Ollama",
+							"llama-v2-7b-chat - Fireworks",
+							"mixtral-8x7b-fw-chat - Fireworks",
+							"zephyr-7b-beta - Fireworks",
+							"mistral-tiny -  Mistral",
+							"mistral-small -  Mistral",
+							"mistral-medium -  Mistral"
+						]
+					},
+					"CodeGPT.organizationId": {
+						"type": "string",
+						"default": "",
+						"markdownDescription": "OpenAI [Organization ID](https://docs.codegpt.co/docs/tutorial-basics/configuration#organization-id-openai)"
+					},
+					"CodeGPT.maxTokens": {
+						"type": "number",
+						"default": 1000,
+						"minimum": 1,
+						"markdownDescription": "The maximum number of [tokens](https://docs.codegpt.co/docs/tutorial-basics/configuration#max-token) for each request"
+					},
+					"CodeGPT.temperature": {
+						"type": "number",
+						"default": 0.3,
+						"minimum": 0,
+						"maximum": 1,
+						"markdownDescription": "The [temperature](https://docs.codegpt.co/docs/tutorial-basics/configuration#temperature). Must be between 0 and 1"
+					},
+					"CodeGPT.windowMemory": {
+						"type": "number",
+						"default": 4,
+						"minimum": 1,
+						"maximum": 50,
+						"markdownDescription": "Window Memory: It stores a list of past conversations, but only the last K (a specific number) conversations are used from the saved list. This is done to prevent the buffer from becoming too large and exceeding the token limit."
+					},
+					"CodeGPT.query.language": {
+						"type": "string",
+						"default": "English",
+						"markdownDescription": "Select the query language",
+						"enum": [
+							"Arabic",
+							"Chinese",
+							"English",
+							"French",
+							"German",
+							"Hebrew",
+							"Italian",
+							"Japanese",
+							"Korean",
+							"Polish",
+							"Portuguese",
+							"Russian",
+							"Spanish",
+							"Thai",
+							"Turkish",
+							"Ukrainian"
+						]
+					}
+				}
+			},
+			{
+				"title": "CodeGPT Autocomplete",
+				"properties": {
+					"CodeGPT.Autocomplete.enabled": {
+						"type": "boolean",
+						"default": false,
+						"description": "Enable CodeGPT Copilot"
+					},
+					"CodeGPT.Autocomplete.provider": {
+						"type": "string",
+						"default": "OpenAI - gpt-3.5-turbo-instruct",
+						"description": "Select an AI provider for CodeGPT Autocomplete. Remember to set your API Key in the main settings.",
+						"enum": [
+							"OpenAI - gpt-3.5-turbo-instruct",
+							"CodeGPT Plus - Plus",
+							"Anthropic - claude-2",
+							"Anthropic - claude-instant-1",
+							"Ollama - codellama",
+							"Ollama - mistral:instruct",
+							"Ollama - deepseek-coder",
+							"Ollama - deepseek-coder:1.3b-instruct-q8_0",
+							"Google - text-bison-001 - english only"
+						]
+					},
+					"CodeGPT.Autocomplete.maxTokens": {
+						"type": "number",
+						"default": 500,
+						"description": "The maximum number of tokens to generate. The model will stop once this many tokens have been generated, so this value trades off between latency and coherence."
+					},
+					"CodeGPT.Autocomplete.suggestionDelay": {
+						"type": "number",
+						"default": 1500,
+						"description": "The delay in milliseconds between the last character typed and the request for suggestions."
+					}
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "codegpt.searchApisCodeGPT",
+				"title": "CodeGPT: Search APIs CodeGPT"
+			},
+			{
+				"command": "codegpt.explainCodeGPT",
+				"title": "CodeGPT: Code Explanation"
+			},
+			{
+				"command": "codegpt.refactorCodeGPT",
+				"title": "CodeGPT: Code Refactoring"
+			},
+			{
+				"command": "codegpt.documentCodeGPT",
+				"title": "CodeGPT: Code Documentation"
+			},
+			{
+				"command": "codegpt.findProblemsCodeGPT",
+				"title": "CodeGPT: Bug Detection"
+			},
+			{
+				"command": "codegpt.unitTestCodeGPT",
+				"title": "CodeGPT: Unit Testing"
+			},
+			{
+				"command": "codegpt.runJupyterNotebook",
+				"title": "CodeGPT: Run Code Interpreter"
+			},
+			{
+				"command": "codegpt.getCode",
+				"title": "CodeGPT: Get Code from comments"
+			},
+			{
+				"command": "codegpt.setApiKeyCodeGPT",
+				"title": "CodeGPT: Set API KEY"
+			},
+			{
+				"command": "codegpt.forceLogOutCodeGPTPlus",
+				"title": "CodeGPT: Force Log Out"
+			},
+			{
+				"command": "codegpt.removeApiKeyCodeGPT",
+				"title": "CodeGPT: Remove API KEY"
+			},
+			{
+				"command": "codegpt.clearChatCodeGPT",
+				"title": "Clear Chat",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "codegpt.changelogCodeGPT",
+				"title": "CodeGPT: Changelog",
+				"icon": "$(info)"
+			},
+			{
+				"command": "codegpt.commitCodeGPT",
+				"title": "CodeGPT: Commit Code"
+			},
+			{
+				"command": "codegpt.setPromptLayerApiKey",
+				"title": "CodeGPT: Set Prompt Layer API KEY"
+			},
+			{
+				"command": "codegpt.removePromptLayerApiKey",
+				"title": "CodeGPT: Remove Prompt Layer API KEY"
+			},
+			{
+				"command": "codegpt.agentCodeGPT",
+				"title": "CodeGPT: Select agent",
+				"icon": "$(feedback)"
+			},
+			{
+				"command": "codegpt.openSettingsCodeGPT",
+				"title": "CodeGPT: Open Setting",
+				"icon": "$(settings-gear)"
+			},
+			{
+				"command": "codegpt.setAzureDataCodeGPT",
+				"title": "CodeGPT: Set Azure Data"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "codegpt.getCode",
+				"key": "ctrl+shift+i",
+				"mac": "cmd+shift+i"
+			}
+		],
+		"menus": {
+			"view/title": [
+				{
+					"command": "codegpt.openSettingsCodeGPT",
+					"when": "view == codegpt-sidebar",
+					"group": "navigation@5"
+				},
+				{
+					"command": "codegpt.changelogCodeGPT",
+					"when": "view == codegpt-sidebar",
+					"group": "navigation@4"
+				},
+				{
+					"command": "codegpt.clearChatCodeGPT",
+					"when": "view == codegpt-sidebar",
+					"group": "navigation@3"
+				},
+				{
+					"command": "codegpt.agentCodeGPT",
+					"when": "view == codegpt-sidebar && isJudiniSelected",
+					"group": "navigation@2"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "codegpt.explainCodeGPT",
+					"when": "editorHasSelection",
+					"group": "codegpt-menu-group@3"
+				},
+				{
+					"command": "codegpt.runJupyterNotebook",
+					"when": "editorHasSelection",
+					"group": "codegpt-menu-group@8"
+				},
+				{
+					"command": "codegpt.refactorCodeGPT",
+					"when": "editorHasSelection",
+					"group": "codegpt-menu-group@4"
+				},
+				{
+					"command": "codegpt.documentCodeGPT",
+					"when": "editorHasSelection",
+					"group": "codegpt-menu-group@5"
+				},
+				{
+					"command": "codegpt.findProblemsCodeGPT",
+					"when": "editorHasSelection",
+					"group": "codegpt-menu-group@6"
+				},
+				{
+					"command": "codegpt.unitTestCodeGPT",
+					"when": "editorHasSelection",
+					"group": "codegpt-menu-group@7"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "codegpt.refactorCodeGPT",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "codegpt.documentCodeGPT",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "codegpt.findProblemsCodeGPT",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "codegpt.unitTestCodeGPT",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "codegpt.runJupyterNotebook",
+					"when": "editorHasSelection"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"lint": "eslint . --fix",
+		"pretest": "npm run lint",
+		"build": "node build.js",
+		"vscode:prepublish": "npm run build",
+		"vscode:package": "npx vsce package",
+		"vscode:publish": "npx vsce publish",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.0.0",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.72.0",
+		"@vscode/test-electron": "^2.2.0",
+		"esbuild": "^0.19.4",
+		"eslint": "^8.35.0",
+		"eslint-config-standard": "^17.0.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-n": "^15.6.1",
+		"eslint-plugin-promise": "^6.1.1",
+		"glob": "^8.0.3",
+		"mocha": "^10.1.0",
+		"typescript": "^4.9.3"
+	},
+	"dependencies": {
+		"axios": "^0.26.1",
+		"cheerio": "^1.0.0-rc.12",
+		"cohere-ai": "^5.0.2",
+		"gpt-tokenizer": "^2.1.1",
+		"openai": "^3.2.1",
+		"polka": "^0.5.2",
+		"uuid": "^9.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/davila7/code-gpt-docs"
+	},
+	"__metadata": {
+		"id": "eb8db386-b7d8-4961-8048-b188d778a1e9",
+		"publisherId": "32ffcc9f-7414-49c5-8252-14fb6374a4f1",
+		"publisherDisplayName": "Code GPT",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1702885883033,
+		"preRelease": false
+	}
+}
